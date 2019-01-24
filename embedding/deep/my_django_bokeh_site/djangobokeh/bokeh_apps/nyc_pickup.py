@@ -32,7 +32,7 @@ class NYCTaxi(param.Parameterized):
 
     def make_view(self, **kwargs):
         print(kwargs)
-        pts   = hv.Points(taxi, [self.location+'_x', self.location+'_y'])
+        pts = hv.Points(taxi, [self.location+'_x', self.location+'_y'])
         trips = datashade(pts, cmap=palette[self.cmap], **dopts)
         return tiles.options(alpha=self.alpha) * trips
 
