@@ -1,26 +1,7 @@
-''' Present an interactive function explorer with slider widgets.
-
-Scrub the sliders to change the properties of the ``sin`` curve, or
-type into the title text box to update the title of the plot.
-
-Use the ``bokeh serve`` command to run the example by executing:
-
-    bokeh serve sliders.py
-
-at your command prompt. Then navigate to the URL
-
-    http://localhost:5006/sliders
-
-in your browser.
-
-'''
 import numpy as np
 
 from bokeh.io2 import curdoc
-from bokeh.layouts import row, widgetbox#
-# for w in [offset, amplitude, phase, freq]:
-#     w.on_change('value', update_data)
-
+from bokeh.layouts import row, widgetbox
 from bokeh.models import ColumnDataSource
 from bokeh.models.widgets import Slider, TextInput
 from bokeh.plotting import figure
@@ -50,9 +31,12 @@ freq = Slider(title="frequency", value=1.0, start=0.1, end=5.1, step=0.1)
 
 # Set up callbacks
 def update_title(attrname, old, new):
+
     plot.title.text = text.value
 
+
 text.on_change('value', update_title)
+
 
 def update_data(attrname, old, new):
 
@@ -68,7 +52,9 @@ def update_data(attrname, old, new):
 
     source.data = dict(x=x, y=y)
 
+
 for w in [offset, amplitude, phase, freq]:
+
     w.on_change('value', update_data)
 
 
