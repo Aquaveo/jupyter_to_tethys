@@ -1,19 +1,21 @@
 from channels.auth import AuthMiddlewareStack
 from channels.routing import ProtocolTypeRouter, URLRouter
 
-import djangobokeh.routing
+from django.apps import apps
+
+djangobokeh_app_config = apps.get_app_config('djangobokeh')
 
 
 application = ProtocolTypeRouter({
     # (http->django views is added by default)
     'websocket': AuthMiddlewareStack(
         URLRouter(
-            djangobokeh.routing.websocket_urlpatterns
+            djangobokeh_app_config.routing_config.get_websocket_urlpatterns()
         )
     ),
     'http': AuthMiddlewareStack(
         URLRouter(
-            djangobokeh.routing.http_urlpatterns
+            djangobokeh_app_config.routing_config.get_http_urlpatterns()
         )
     ),
 })
