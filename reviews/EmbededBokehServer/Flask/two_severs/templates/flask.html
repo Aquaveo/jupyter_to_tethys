@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Embed Bokeh app into Flask</title>
+    </head>
+    <body>
+    <h1>My Flask App</h1>
+    {% autoescape false %}
+        {{ bokeh_script }}
+    {% endautoescape %}
+    </body>
+</html>
