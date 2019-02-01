@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,4 +141,7 @@ DATABASES = {
 }
 
 # DjangoBokeh
-BOKEH_NODEJS_PATH = '/home/drew/tethys/miniconda/envs/bokeh-channels-dev/bin/node'
+python_interpreter_path = sys.executable
+bin_dir = os.path.dirname(python_interpreter_path)
+node_path = os.path.join(bin_dir, "node")
+BOKEH_NODEJS_PATH = node_path
