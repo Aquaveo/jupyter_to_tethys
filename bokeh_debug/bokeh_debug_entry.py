@@ -1,9 +1,11 @@
+# This script programmatically invokes same feature as terminal command "bokeh serve XXXX.py"
+# Set a breakpoint in Debug mode to step into Bokeh source code
 import sys
 import os
 from bokeh.command.bootstrap import main
 
 # Change here to switch between sliders_path and nyc_pickup_path
-TEST_APP = "sliders"  # nyc_pickup or sliders
+TEST_APP = "nyc_pickup"  # nyc_pickup or sliders
 
 python_interpreter_path = sys.executable
 bin_dir = os.path.dirname(python_interpreter_path)
