@@ -78,7 +78,6 @@ class BokehAppHTTPConsumer(AsyncHttpConsumer):
         ])
 
 
-
 class BokehAppWebsocketConsumer(AsyncWebsocketConsumer):
 
     def __init__(self, scope):
